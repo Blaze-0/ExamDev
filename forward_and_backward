@@ -1,0 +1,36 @@
+int motorPin = 9; // Motor connected to pin 9
+void setup() {
+  pinMode(motorPin, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(motorPin, HIGH); // Motor moves forward
+  delay(1000); // Wait for a second
+  digitalWrite(motorPin, LOW); // Motor stops
+  delay(1000); // Wait for a second
+}
+//You can modify this code to control the forward and backward motion of your roller attached to the motor by changing the direction of rotation of the motor.
+//You can use an H-bridge circuit to control the direction of rotation of the motor. Here’s an example code snippet for controlling a DC motor with an H-bridge circuit:
+// H-bridge circuit pins
+int enA = 9;
+int in1 = 8;
+int in2 = 7;
+
+void setup() {
+  pinMode(enA, OUTPUT);
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(in1, HIGH); // Motor moves forward
+  digitalWrite(in2, LOW);
+  analogWrite(enA, 255); // Set speed to maximum
+  delay(1000); // Wait for a second
+
+  digitalWrite(in1, LOW); // Motor moves backward
+  digitalWrite(in2, HIGH);
+  analogWrite(enA, 255); // Set speed to maximum
+  delay(1000); // Wait for a second
+
+}
